@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { renderInputErrors, getInputClassName } from "./helpers/AppHelper";
+import { 
+  login,
+  createSession
+} from "./services/AuthService";
 import {
   API_BASE_URL
 } from "env";
@@ -12,6 +16,18 @@ export default Login = () => {
 
   const handleLogin = () => {
     setIsLoading(true);
+
+    login({ username, password}).then((payload) => {
+      createSession({
+        token: payload.data.token,
+        user: payload.data.user
+      });
+    }).catch((payload) => {
+      console.log("Something went wrong");
+      console.log(payload.response);
+      setErrors(payload.response.data);
+      setIsLoading(false);
+    });
   }
 
   return (
@@ -59,6 +75,7 @@ export default Login = () => {
                 setPassword(event.target.value);
               }}
             />
+            {renderInputErrors(errors, 'password')}
           </div>
           <div className="mt-2"/>
           <div className="form-group p-2">
