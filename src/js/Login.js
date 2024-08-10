@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { renderInputErrors, getInputClassName } from "./helpers/AppHelper";
+import {
+  API_BASE_URL
+} from "env";
 
 export default Login = () => {
   const [username, setUsername] = useState("");
@@ -27,6 +30,11 @@ export default Login = () => {
               value={username}
               disabled={isLoading}
               className={getInputClassName(errors, 'username')}
+              onKeyDown={(event) => {
+                if (event.key == 'Enter') {
+                  handleLogin()
+                }
+              }}
               onChange={(event) => {
                 setUsername(event.target.value);
               }}
@@ -41,6 +49,11 @@ export default Login = () => {
               value={password}
               disabled={isLoading}
               className={getInputClassName(errors, 'password')}
+              onKeyDown={(event) => {
+                if (event.key == 'Enter') {
+                  handleLogin()
+                }
+              }}
               type="password"
               onChange={(event) => {
                 setPassword(event.target.value);
@@ -53,11 +66,21 @@ export default Login = () => {
               className="btn btn-primary w-100"
               disabled={isLoading}
               onClick={handleLogin}
+              onKeyDown={(event) => {
+                if (event.key == 'Enter') {
+                  handleLogin()
+                }
+              }}
             >
               Login
             </button>
           </div>
           <hr/>
+          <center>
+            <small className="text-muted">
+              {API_BASE_URL}
+            </small>
+          </center>
         </div>
       </div>
     </div>
