@@ -1,2 +1,8 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "./bootstrap-overrides";
 @import "./variables";
+@import "./Login";
+
+label {
+  font-weight: bold;
+}
