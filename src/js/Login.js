@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { renderInputErrors, getInputClassName } from "./helpers/AppHelper";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import { 
   login,
   createSession
@@ -40,12 +42,13 @@ export default Login = () => {
           <hr/>
           <div className="form-group p-2">
             <label>
+              <FontAwesomeIcon icon={faUser} className="me-2"/>
               Username:
             </label>
             <input
               value={username}
               disabled={isLoading}
-              className={getInputClassName(errors, 'username')}
+              className={`mt-2 ${getInputClassName(errors, 'username')}`}
               onKeyDown={(event) => {
                 if (event.key == 'Enter') {
                   handleLogin()
@@ -59,12 +62,13 @@ export default Login = () => {
           </div>
           <div className="form-group p-2">
             <label>
+              <FontAwesomeIcon icon={faLock} className="me-2"/>
               Password:
             </label>
             <input
               value={password}
               disabled={isLoading}
-              className={getInputClassName(errors, 'password')}
+              className={`mt-2 ${getInputClassName(errors, 'password')}`}
               onKeyDown={(event) => {
                 if (event.key == 'Enter') {
                   handleLogin()
