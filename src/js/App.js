@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "./Login";
-import { isLoggedIn, destroySession } from "./services/AuthService";
+import { isLoggedIn } from "./services/AuthService";
+import TopNavigation from "./TopNavigation";
 
 export default App = () => {
   if (!isLoggedIn()) {
@@ -11,14 +12,7 @@ export default App = () => {
 
   return (
     <React.Fragment>
-      <button
-        className="btn btn-danger"
-        onClick={() => {
-          destroySession();
-        }}
-      >
-        Logout
-      </button>
+      <TopNavigation/>
     </React.Fragment>
   );
 }

@@ -24,6 +24,8 @@ export default Login = () => {
         token: payload.data.token,
         user: payload.data.user
       });
+
+      window.location.href = "/";
     }).catch((payload) => {
       console.log("Something went wrong");
       console.log(payload.response);
