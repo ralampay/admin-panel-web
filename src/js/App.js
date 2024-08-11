@@ -24,7 +24,7 @@ export default App = () => {
             isSidebarOpen={isSidebarOpen}
             setIsSidebarOpen={setIsSidebarOpen}
           />
-          <main>
+          <main className="container-fluid p-3">
             Content
           </main>
         </div>
