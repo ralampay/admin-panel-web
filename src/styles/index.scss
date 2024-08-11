@@ -2,7 +2,12 @@
 @import "./bootstrap-overrides";
 @import "./variables";
 @import "./Login";
+@import "./TopNavigation";
 
 label {
   font-weight: bold;
+}
+
+.clickable {
+  cursor: pointer;
 }
