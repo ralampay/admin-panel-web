@@ -3,7 +3,12 @@ import { destroySession } from "./services/AuthService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-export default TopNavigation = () => {
+export default TopNavigation = (props) => {
+
+  let {
+    isSidebarOpen,
+    setIsSidebarOpen
+  } = props;
 
   return (
     <div className="top-navigation">
@@ -14,6 +19,9 @@ export default TopNavigation = () => {
               icon={faBars}
               size="2x"
               className="clickable ms-2"
+              onClick={() => {
+                setIsSidebarOpen(!isSidebarOpen);
+              }}
             />
           </div>
           <div className="col text-end">

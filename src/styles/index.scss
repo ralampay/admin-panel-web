@@ -3,6 +3,7 @@
 @import "./variables";
 @import "./Login";
 @import "./TopNavigation";
+@import "./Sidebar";
 
 label {
   font-weight: bold;
@@ -10,4 +11,19 @@ label {
 
 .clickable {
   cursor: pointer;
+}
+
+.app-container {
+  overflow-x: hidden;
+}
+
+.app-content {
+  margin-right: 0;
+  flex: 1;
+}
+
+.app-content.open {
+  margin-right: 250px;
+  transform: translateX(250px);
+  width: calc(100% - 250px); /* Adjust to match your sidebar width */
 }
