@@ -18,6 +18,7 @@ export default App = () => {
       <div className="app-container">
         <Sidebar
           isOpen={isSidebarOpen}
+          setIsOpen={setIsSidebarOpen}
         />
         <div className={`app-content ${isSidebarOpen ? 'open' : ''}`}>
           <TopNavigation
