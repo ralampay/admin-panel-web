@@ -1,7 +1,10 @@
 import React from "react";
-import { destroySession } from "./services/AuthService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { 
+  faBars,
+  faGears,
+  faBell
+} from "@fortawesome/free-solid-svg-icons";
 
 export default TopNavigation = (props) => {
 
@@ -25,15 +28,15 @@ export default TopNavigation = (props) => {
             />
           </div>
           <div className="col text-end">
-            <button
-              className="btn btn-danger"
-              onClick={() => {
-                destroySession();
-                window.location.href = "/";
-              }}
-            >
-              Logout
-            </button>
+            <span className="clickable">
+              <FontAwesomeIcon 
+                icon={faGears}
+                size="2x"
+                className="clickable ms-2"
+                onClick={() => {
+                }}
+              />
+            </span>
           </div>
         </div>
       </div>
