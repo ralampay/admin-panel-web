@@ -21,10 +21,6 @@ export default App = () => {
           setIsOpen={setIsSidebarOpen}
         />
         <div className={`app-content ${isSidebarOpen ? 'open' : ''}`}>
-          <TopNavigation
-            isSidebarOpen={isSidebarOpen}
-            setIsSidebarOpen={setIsSidebarOpen}
-          />
           <main className="container-fluid p-3">
             Content
           </main>

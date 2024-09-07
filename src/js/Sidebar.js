@@ -1,47 +1,85 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDashboard, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { 
+  faDashboard, 
+  faArrowLeft,
+  faGears,
+  faBars
+} from "@fortawesome/free-solid-svg-icons";
 import profile from "../styles/images/profile.png";
 import { destroySession } from "./services/AuthService";
+import { useNavigate, useLocation } from "react-router-dom";
+import Clock from "./Clock";
 
 export default Sidebar = (props) => {
-  let {
-    isOpen
-  } = props;
+  const [isOpen, setIsOpen] = useState(true);
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
-    <div className={`sidebar ${isOpen ? 'open' : ''}`}>
-      <div className="user-info d-flex align-items-center bg-dark text-white py-2 px-3">
-        <img src={profile} alt="User" className="rounded-circle me-3" style={{ width: '50px', height: '50px' }} />
-        <div>
-          <p className="mb-0 fw-bold">John Doe</p>
-          <p className="mb-0 title">Administrator</p>
-        </div>
-      </div>
-      <div className="nav-items">
-        <div 
-          className="nav-item active"
-          onClick={() => {
-          }}
-        >
-          <FontAwesomeIcon icon={faDashboard} className="me-2"/>
-          <span className="link-name">
-            Dashboard
-          </span>
-        </div>
-      </div>
-      <div 
-        className="bottom clickable"
+    <div className={`sidebar ${isOpen ? 'active' : 'close'}`}>
+      <a
         onClick={() => {
-          destroySession();
-          window.location.href = "/";
+          setIsOpen(!isOpen);
         }}
       >
-        <FontAwesomeIcon icon={faArrowLeft} className="me-2"/>
-        <span className="link-name">
-          Logout
-        </span>
-      </div>
+        <div className="logo-details">
+          <i className="clickable">
+            <FontAwesomeIcon icon={faBars}/>
+          </i>
+          <span className="logo-name">
+            AD
+          </span>
+        </div>
+      </a>
+      <ul className="nav-links">
+        <li className={location.pathname == "/" ? "active" : ""}>
+          <a
+            onClick={() => {
+              navigate('/')
+            }}
+          >
+            <i>
+              <FontAwesomeIcon icon={faDashboard}/>
+            </i>
+            <span className="link-name">
+              Dashboard
+            </span>
+          </a>
+        </li>
+        <li className={location.pathname == "/settings" ? "active" : ""}>
+          <a
+            onClick={() => {
+              navigate('/settings')
+            }}
+          >
+            <i>
+              <FontAwesomeIcon icon={faGears}/>
+            </i>
+            <span className="link-name">
+              Settings
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            onClick={() => {
+              destroySession();
+              window.location.href="/";
+            }}
+          >
+            <i>
+              <FontAwesomeIcon icon={faArrowLeft}/>
+            </i>
+            <span className="link-name">
+              Logout
+            </span>
+          </a>
+        </li>
+        <li>
+        </li>
+      </ul>
     </div>
   );
 }
