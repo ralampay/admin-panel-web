@@ -78,6 +78,21 @@ export default Sidebar = (props) => {
           </a>
         </li>
         <li>
+          <div className="profile-details">
+            <a href="#">
+              <div class="profile-content">
+                <img alt="profileImg" src="#"/>
+              </div>
+              <div class="name-job">
+                <div class="profile-name">
+                  username
+                </div>
+                <div class="job">
+                  JOB  
+                </div>
+              </div>
+            </a>
+          </div>
         </li>
       </ul>
     </div>
