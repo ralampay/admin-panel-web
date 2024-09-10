@@ -9,9 +9,8 @@ import {
 import profile from "../styles/images/profile.png";
 import { destroySession } from "./services/AuthService";
 import { useNavigate, useLocation } from "react-router-dom";
-import Clock from "./Clock";
 
-export default Sidebar = (props) => {
+export default Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   const navigate = useNavigate();
