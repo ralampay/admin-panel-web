@@ -81,7 +81,7 @@ export default Sidebar = (props) => {
           <div className="profile-details">
             <a href="#">
               <div class="profile-content">
-                <img alt="profileImg" src="#"/>
+                <img alt="profileImg" src={profile}/>
               </div>
               <div class="name-job">
                 <div class="profile-name">
